@@ -83,11 +83,18 @@ class Rabbit:
         self.period = period #兔子的性成熟期
 
     def grow(self):
+        """
+        实现兔子的年龄增长方式
+        """
+            	
         #过一个月age就加1
         self.age += 1
 
     def product(self):
-        if self.age > self.period:
+        """
+        实现兔子的繁殖功能
+        ”“”
+        if self.age > self.period: # 
             return Rabbit(self.period)
         else:
             return None
@@ -96,6 +103,7 @@ def rabbit_count(month, period):
     rabbits = []
     origin_rabbit = Rabbit(period)
     rabbits.append(origin_rabbit)
+    # 每个月轮流去检查所有兔子类，给兔子增加月份，
     for i in range(month):
         for rabbit in rabbits:
             rabbit.grow()
